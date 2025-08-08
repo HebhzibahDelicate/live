@@ -51,8 +51,8 @@ const CommunityPage: React.FC = () => {
   ];
 
   const stats = [
-    { icon: <Users className="h-6 w-6" />, count: '100+', label: 'Community Members' },
-    { icon: <Code className="h-6 w-6" />, count: '50+', label: 'Resources Shared' },
+    { icon: <Users className="h-6 w-6" />, count: '750+', label: 'Community Members' },
+    { icon: <Code className="h-6 w-6" />, count: '100+', label: 'Resources Shared' },
   ];
 
   const benefits = [
