@@ -75,8 +75,8 @@ const StatCounter: React.FC = () => {
   const defaultStats = [
     { number: 7, label: "Robots Delivered" },
     { number: 22, label: "Workshops" },
-    { number: 256, label: "Interns" },
-    { number: 1091, label: "Students Mentored" }
+    { number: 299, label: "Interns" },
+    { number: 1187, label: "Students Mentored" }
   ];
 
   return (

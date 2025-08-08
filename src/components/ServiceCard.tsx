@@ -15,19 +15,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <div 
-      className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-green-500 group"
+      className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-green-500 group h-full flex flex-col"
       style={{
         animationDelay: `${delay}s`,
       }}
     >
-      <div className="text-center">
+      <div className="text-center flex-1 flex flex-col">
         <div className="mb-4 flex justify-center items-center">
           {icon}
         </div>
         <h3 className="text-xl font-semibold mb-3 group-hover:text-green-500 transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-gray-600">
+        <p className="text-gray-600 flex-1">
           {description}
         </p>
       </div>

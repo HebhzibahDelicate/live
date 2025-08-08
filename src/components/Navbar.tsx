@@ -58,13 +58,13 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Navigation Items - Right Side */}
-          <div className="hidden md:flex space-x-6 items-center">
+          <div className="hidden md:flex space-x-4 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={handleNavClick}
-                className={`text-white hover:text-green-400 transition-colors duration-300 ${
+                className={`text-white hover:text-green-400 transition-colors duration-300 text-sm ${
                   location.pathname === item.path ? 'text-green-400' : ''
                 }`}
               >

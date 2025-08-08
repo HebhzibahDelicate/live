@@ -65,15 +65,15 @@ const Testimonials: React.FC = () => {
 
           {/* First row with 4 logos */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-4 gap-16 items-center justify-items-center mb-16 px-4"
+            className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center justify-items-center mb-16 px-4"
             variants={containerVariants}
           >
             {firstRowLogos.map((logo, index) => (
               <motion.div 
                 key={index} 
-                className="w-80 h-56 flex items-center justify-center p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="w-64 h-48 flex items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02, y: -5 }}
               >
                 <img
                   src={logo}
@@ -87,15 +87,15 @@ const Testimonials: React.FC = () => {
           
           {/* Second row with 3 logos centered */}
           <motion.div 
-            className="flex flex-col md:flex-row justify-center items-center gap-12"
+            className="flex flex-col md:flex-row justify-center items-center gap-8"
             variants={containerVariants}
           >
             {secondRowLogos.map((logo, index) => (
               <motion.div 
                 key={index} 
-                className="w-80 h-56 flex items-center justify-center p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="w-64 h-48 flex items-center justify-center p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02, y: -5 }}
               >
                 <img
                   src={logo}

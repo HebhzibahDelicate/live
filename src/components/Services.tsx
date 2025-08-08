@@ -75,7 +75,7 @@ const Services: React.FC = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch"
           variants={containerVariants}
         >
           {services.map((service, index) => (
@@ -84,13 +84,16 @@ const Services: React.FC = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+              className="h-full"
             >
-              <ServiceCard 
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                delay={index * 0.1}
-              />
+              <div className="h-full">
+                <ServiceCard 
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  delay={index * 0.1}
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>

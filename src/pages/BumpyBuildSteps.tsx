@@ -238,7 +238,7 @@ const ProductsPage: React.FC = () => {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-stretch"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -247,18 +247,18 @@ const ProductsPage: React.FC = () => {
             {includedItems.map((item, index) => (
               <motion.div
                 key={index}
-                className="relative group cursor-pointer"
+                className="relative group cursor-pointer h-full"
                 variants={itemVariants}
               >
                 <div className="absolute inset-0 bg-green-500 rounded-2xl opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300"></div>
-                <div className="relative bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:translate-x-2 group-hover:-translate-y-2 z-10">
-                  <div className="mb-4 text-green-500 group-hover:text-white transition-colors duration-300">
+                <div className="relative bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:translate-x-2 group-hover:-translate-y-2 z-10 h-full flex flex-col">
+                  <div className="mb-4 text-green-500 group-hover:text-black transition-colors duration-300">
                     {item.icon}
                   </div>
-                  <h3 className="font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+                  <h3 className="font-semibold text-gray-900 group-hover:text-black transition-colors duration-300 mb-2">
                     {item.name}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-2 group-hover:text-white/90 transition-colors duration-300">
+                  <p className="text-sm text-gray-500 group-hover:text-black/80 transition-colors duration-300 flex-1">
                     {item.description}
                   </p>
                 </div>
