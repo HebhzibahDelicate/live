@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin, Clock, Calendar, Users, ArrowRight, Globe } from 'lucide-react';
+import { useWorkshopPopup } from '../hooks/useWorkshopPopup';
 
 interface Workshop {
   id: string;
@@ -15,12 +16,27 @@ interface Workshop {
   registerLink: string;
 }
 
-const WorkshopPopup: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
+interface WorkshopPopupManagerProps {
+  workshop?: Workshop;
+  enabled?: boolean;
+  delay?: number;
+  showOnce?: boolean;
+}
 
-  // Workshop data - you can move this to a separate file or fetch from API
-  const currentWorkshop: Workshop = {
+const WorkshopPopupManager: React.FC<WorkshopPopupManagerProps> = ({
+  workshop,
+  enabled = true,
+  delay = 3000,
+  showOnce = true
+}) => {
+  const { isOpen, closePopup } = useWorkshopPopup({
+    delay,
+    showOnce,
+    enabled: enabled && !!workshop
+  });
+
+  // Default workshop if none provided
+  const defaultWorkshop: Workshop = {
     id: 'ros2-basics-roadmap',
     title: 'ROS 2: Basics, Roadmap to Pro',
     date: 'June 29, 2025',
@@ -33,35 +49,18 @@ const WorkshopPopup: React.FC = () => {
     registerLink: 'https://unstop.com/o/frM5Agm?utm_medium=Share&utm_source=shortUrl'
   };
 
-  useEffect(() => {
-    // Check if popup has been shown in this session
-    const popupShown = sessionStorage.getItem('workshopPopupShown');
-    
-    if (!popupShown && !hasShown) {
-      // Show popup after 3 seconds
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        setHasShown(true);
-        sessionStorage.setItem('workshopPopupShown', 'true');
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [hasShown]);
-
-  const closePopup = () => {
-    setIsOpen(false);
-  };
+  const currentWorkshop = workshop || defaultWorkshop;
 
   const handleRegister = () => {
     window.open(currentWorkshop.registerLink, '_blank');
     closePopup();
   };
 
-  // Don't render if no workshop or already shown
-  if (!currentWorkshop || hasShown) {
-    return null;
-  }
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      closePopup();
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -71,7 +70,7 @@ const WorkshopPopup: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={closePopup}
+          onClick={handleBackdropClick}
         >
           <motion.div
             className="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl"
@@ -171,4 +170,4 @@ const WorkshopPopup: React.FC = () => {
   );
 };
 
-export default WorkshopPopup;
+export default WorkshopPopupManager;
