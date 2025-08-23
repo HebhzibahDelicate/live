@@ -23,34 +23,85 @@ const WorkshopsPage: React.FC = () => {
 
   const workshops: Workshop[] = [
     // Previous Workshop
-    {
-      id: 'ros2-urdf-slam',
-      title: 'ROS 2: Creating URDF, ROS2 CONTROL & SLAM',
-      date: 'May 21, 2025',
-      time: '10:00 AM - 4:00 PM',
-      mode: 'Online',
-      description: 'Comprehensive workshop covering URDF creation, ROS2 Control implementation, and SLAM techniques for autonomous navigation.',
-      level: 'Intermediate',
-      image: '/assets/workshop1.png',
-      status: 'completed',
-      participants: 150,
-      duration: '6 hours'
-    },
-    // Upcoming Workshop (from existing workshop section)
-    {
-      id: 'ros2-basics-roadmap',
-      title: 'ROS 2: Basics, Roadmap to Pro',
-      date: 'June 29, 2025',
-      time: '9:30 AM - 12:00 PM',
-      mode: 'Online',
-      description: 'Dive into ROS2 Basics and Complete Road map for ROS2 Beginner to Pro',
-      level: 'Intermediate',
-      price: '₹150',
-      image: '/assets/workshop.png',
-      registerLink: 'https://unstop.com/o/frM5Agm?utm_medium=Share&utm_source=shortUrl',
-      status: 'upcoming',
-      duration: '2.5 hours'
-    }
+ {
+  id: 'robotics-basics-1hour',
+  title: '1-Hour Robotics Workshop',
+  date: 'April 15, 2025',
+  time: '2:00 PM - 3:00 PM',
+  mode: 'Online',
+  description: 'Join us for a 1-hour virtual fest on Robotics basics and programming! Perfect for beginners and enthusiasts. Dive into the world of robotics with hands-on demos and valuable insights.',
+  level: 'Beginner',
+  price: '₹49',
+  image: '/assets/workshops/online/workshop1.jpg',
+  status: 'completed',
+  duration: '1 hour'
+},
+{
+  id: 'ros2-basics-simulations',
+  title: 'ROS 2: Basics & Simulations',
+  date: 'March 30, 2025',
+  time: '10:00 AM - 12:00 PM',
+  mode: 'Online',
+  description: 'Join our interactive 2-hour virtual workshop on ROS2 Basics & Simulations! Designed for beginners and enthusiasts, this session will introduce you to the world of robotics with hands-on ROS2 demos and practical simulation insights.',
+  level: 'Beginner',
+  price: '₹160',
+  image: '/assets/workshops/online/workshop2.jpg',
+  status: 'completed',
+  duration: '2 hours'
+},
+{
+  id: 'ros2-urdf-control-slam',
+  title: 'ROS 2: URDF, Control Systems & SLAM',
+  date: 'May 21, 2025',
+  time: '10:00 AM - 12:00 PM',
+  mode: 'Online',
+  description: 'Join our interactive 2-hour virtual workshop on creating robot URDFs, control systems, and SLAM with ROS2! This hands-on session will guide you through developing robot models with URDF, implementing effective control architectures, and setting up Simultaneous Localization and Mapping for autonomous navigation.',
+  level: 'Intermediate',
+  price: '₹99',
+  image: '/assets/workshops/online/workshop3.jpg',
+  status: 'completed',
+  duration: '2 hours'
+},
+{
+  id: 'ros2-basics-simulations-advanced',
+  title: 'ROS 2: Basics & Simulations',
+  date: 'January 26, 2025',
+  time: '10:00 AM - 12:00 PM',
+  mode: 'Online',
+  description: 'Join us for an engaging 2-hour virtual workshop on ROS2 Basics & Simulations. Perfect for beginners and enthusiasts. This session will introduce you to the exciting world of robotics through hands-on ROS2 demos and practical simulation insights.',
+  level: 'Beginner',
+  price: '₹99',
+  image: '/assets/workshops/online/workshop4.jpg',
+  status: 'completed',
+  duration: '2 hours'
+},
+{
+  id: 'ros2-roadmap-mastery',
+  title: 'ROS 2: Complete Roadmap to Mastery',
+  date: 'June 29, 2025',
+  time: '10:00 AM - 12:00 PM',
+  mode: 'Online',
+  description: 'This hands-on session is designed to help you kickstart your journey into ROS 2 by covering the fundamental concepts, tools, and workflows every beginner needs to know. From understanding ROS 2 architecture and workspaces to building your first nodes and exploring real-world applications, this workshop provides a clear roadmap to mastering ROS 2.',
+  level: 'Beginner to Advanced',
+  price: '₹150',
+  image: '/assets/workshops/online/workshop5.jpg',
+  status: 'completed',
+  duration: '2 hours'
+},
+{
+  id: 'ros2-robot-simulation-gazebo',
+  title: 'ROS 2: Build Robot Simulation in Gazebo',
+  date: 'August 31, 2025',
+  time: '10:00 AM - 12:00 PM',
+  mode: 'Online',
+  description: 'This interactive 2-hour virtual workshop is designed to help you kickstart your journey into ROS 2 through hands-on learning. You\'ll explore the essential concepts, tools, and workflows every beginner needs, including ROS 2 architecture, workspaces, and node creation. By the end of the session, you won\'t just understand ROS 2—you\'ll also build and simulate your own robot in Gazebo.',
+  level: 'Beginner',
+  price: '₹159',
+  image: '/assets/workshops/online/workshop6.jpg',
+  registerLink: 'https://unstop.com/workshops-webinars/ros-2-lets-build-a-robot-karthikesh-robotics-private-limited-1544315',
+  status: 'upcoming',
+  duration: '2 hours'
+}
   ];
 
   const previousWorkshops = workshops.filter(w => w.status === 'completed');
@@ -79,11 +130,12 @@ const WorkshopsPage: React.FC = () => {
 
   const WorkshopCard: React.FC<{ workshop: Workshop }> = ({ workshop }) => (
     <motion.div
-      className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+      className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 max-w-sm mx-auto"
       variants={itemVariants}
       whileHover={{ scale: 1.02 }}
     >
-      <div className="aspect-video overflow-hidden relative">
+      {/* Portrait Image Container */}
+      <div className="aspect-[3/4] overflow-hidden relative">
         <img
           src={workshop.image}
           alt={workshop.title}
@@ -100,6 +152,11 @@ const WorkshopsPage: React.FC = () => {
             Upcoming
           </div>
         )}
+        {workshop.price && (
+          <div className="absolute top-4 right-4 bg-white bg-opacity-90 backdrop-blur-sm text-green-600 px-3 py-1 rounded-full text-lg font-bold">
+            {workshop.price}
+          </div>
+        )}
       </div>
 
       <div className="p-6">
@@ -107,39 +164,34 @@ const WorkshopsPage: React.FC = () => {
           <span className="px-3 py-1 bg-green-100 text-green-500 rounded-full text-sm font-medium">
             {workshop.level}
           </span>
-          {workshop.price && (
-            <span className="text-xl font-bold text-green-500">
-              {workshop.price}
-            </span>
-          )}
           {workshop.status === 'completed' && workshop.participants && (
             <span className="text-sm text-gray-500 flex items-center gap-1">
               <Users className="h-4 w-4" />
-              {workshop.participants} participants
+              {workshop.participants}
             </span>
           )}
         </div>
 
-        <h3 className="text-xl font-semibold mb-4 group-hover:text-green-500 transition-colors">
+        <h3 className="text-lg font-semibold mb-3 group-hover:text-green-500 transition-colors leading-tight">
           {workshop.title}
         </h3>
 
-        <p className="text-gray-600 mb-6">{workshop.description}</p>
+        <p className="text-gray-600 mb-4 text-sm line-clamp-3">{workshop.description}</p>
 
-        <div className="space-y-3 mb-6">
-          <div className="flex items-center gap-3 text-gray-600">
-            <Calendar className="h-5 w-5 text-green-500" />
-            <span>{workshop.date}</span>
+        <div className="space-y-2 mb-6">
+          <div className="flex items-center gap-2 text-gray-600 text-sm">
+            <Calendar className="h-4 w-4 text-green-500 flex-shrink-0" />
+            <span className="truncate">{workshop.date}</span>
           </div>
-          <div className="flex items-center gap-3 text-gray-600">
-            <Clock className="h-5 w-5 text-green-500" />
-            <span>{workshop.time}</span>
+          <div className="flex items-center gap-2 text-gray-600 text-sm">
+            <Clock className="h-4 w-4 text-green-500 flex-shrink-0" />
+            <span className="truncate">{workshop.time}</span>
             {workshop.duration && (
-              <span className="text-sm text-gray-500">({workshop.duration})</span>
+              <span className="text-xs text-gray-500">({workshop.duration})</span>
             )}
           </div>
-          <div className="flex items-center gap-3 text-gray-600">
-            <Globe className="h-5 w-5 text-green-500" />
+          <div className="flex items-center gap-2 text-gray-600 text-sm">
+            <Globe className="h-4 w-4 text-green-500 flex-shrink-0" />
             <span>{workshop.mode}</span>
           </div>
         </div>
@@ -149,14 +201,14 @@ const WorkshopsPage: React.FC = () => {
             href={workshop.registerLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-gray-900 hover:bg-green-500 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 flex items-center justify-center gap-2 group"
+            className="w-full bg-gray-900 hover:bg-green-500 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 flex items-center justify-center gap-2 group text-sm"
           >
             Register Now
-            <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
           </a>
         ) : (
-          <div className="w-full bg-gray-100 text-gray-500 font-semibold py-3 px-6 rounded-md flex items-center justify-center gap-2">
-            <CheckCircle className="h-5 w-5" />
+          <div className="w-full bg-gray-100 text-gray-500 font-semibold py-3 px-6 rounded-md flex items-center justify-center gap-2 text-sm">
+            <CheckCircle className="h-4 w-4" />
             Workshop Completed
           </div>
         )}
@@ -225,7 +277,7 @@ const WorkshopsPage: React.FC = () => {
                 Upcoming Workshops
               </motion.h2>
               {upcomingWorkshops.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
                   {upcomingWorkshops.map((workshop) => (
                     <WorkshopCard key={workshop.id} workshop={workshop} />
                   ))}
@@ -252,7 +304,7 @@ const WorkshopsPage: React.FC = () => {
                 Previous Workshops
               </motion.h2>
               {previousWorkshops.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
                   {previousWorkshops.map((workshop) => (
                     <WorkshopCard key={workshop.id} workshop={workshop} />
                   ))}

@@ -3,17 +3,17 @@ import { Calendar, Clock, Globe, ArrowRight } from 'lucide-react';
 
 const workshops = [
   {
-    title: 'ROS 2: Basics, Roadmap to Pro',
-    date: 'June 29, 2025',
-    time: '9:30 AM - 12:00 PM',
+    title: 'ros2-robot-simulation-gazebo',
+    date: 'August 31, 2025',
+    time: '10:00 AM - 12:00 PM',
     mode: 'Online',
     description:
-      'Dive into ROS2 Basics and Complete Road map for ROS2 Begnieer to Pro',
+      'This interactive 2-hour virtual workshop is designed to help you kickstart your journey into ROS 2 through hands-on learning. You\'ll explore the essential concepts, tools, and workflows every beginner needs, including ROS 2 architecture, workspaces, and node creation. By the end of the session, you won\'t just understand ROS 2—you\'ll also build and simulate your own robot in Gazebo.',
     level: 'Intermediate',
-    price: '₹150',
-    image: '/assets/workshop.png', // Make sure this file is in your public folder
+    price: '₹159',
+    image: '/assets/workshops/online/workshop6.jpg', // Make sure this file is in your public folder
     registerLink:
-      'https://unstop.com/o/frM5Agm?utm_medium=Share&utm_source=shortUrl',
+      'https://unstop.com/workshops-webinars/ros-2-lets-build-a-robot-karthikesh-robotics-private-limited-1544315',
   },
 ];
 

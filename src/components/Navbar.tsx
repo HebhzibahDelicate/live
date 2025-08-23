@@ -50,21 +50,21 @@ const Navbar: React.FC = () => {
             <img
               src="/assets/logo.png"
               alt="Karthikesh Robotics Logo"
-              className="h-8 w-8 mr-2 object-contain"
+              className="h-10 w-10 mr-3 object-contain"
             />
-            <span className="text-white font-semibold text-xl">
+            <span className="text-white font-semibold text-2xl">
               Karthikesh Robotics
             </span>
           </Link>
 
           {/* Navigation Items - Right Side */}
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="hidden md:flex space-x-6 items-center ml-auto">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={handleNavClick}
-                className={`text-white hover:text-green-400 transition-colors duration-300 text-sm ${
+                className={`text-white hover:text-green-400 transition-colors duration-300 text-sm font-medium ${
                   location.pathname === item.path ? 'text-green-400' : ''
                 }`}
               >
@@ -73,9 +73,9 @@ const Navbar: React.FC = () => {
             ))}
             <Link
               to="/cart"
-              className="relative text-white hover:text-green-400 transition-colors duration-300"
+              className="relative text-white hover:text-green-400 transition-colors duration-300 ml-4"
             >
-              <ShoppingCart className="h-6 w-6" />
+              <ShoppingCart className="h-7 w-7" />
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 bg-green-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {totalItems}
@@ -86,9 +86,9 @@ const Navbar: React.FC = () => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-white focus:outline-none ml-auto"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
 
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
                 key={item.name}
                 to={item.path}
                 onClick={handleNavClick}
-                className={`text-white hover:text-green-400 transition-colors duration-300 ${
+                className={`text-white hover:text-green-400 transition-colors duration-300 text-sm font-medium ${
                   location.pathname === item.path ? 'text-green-400' : ''
                 }`}
               >
@@ -113,9 +113,9 @@ const Navbar: React.FC = () => {
             <Link
               to="/cart"
               onClick={handleNavClick}
-              className="text-white hover:text-green-400 transition-colors duration-300 flex items-center gap-2"
+              className="text-white hover:text-green-400 transition-colors duration-300 flex items-center gap-2 text-sm font-medium"
             >
-              <ShoppingCart className="h-5 w-5" />
+              <ShoppingCart className="h-6 w-6" />
               Cart {totalItems > 0 && `(${totalItems})`}
             </Link>
           </div>
