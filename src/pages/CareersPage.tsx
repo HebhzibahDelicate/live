@@ -18,6 +18,19 @@ const CareersPage: React.FC = () => {
       icon: <Bot className="h-8 w-8 text-green-500" />,
       title: "Robotics Engineer",
       description: "Design and develop robotic systems and automation solutions for various applications."
+    },
+    {
+      icon: <Brain className="h-8 w-8 text-green-500" />,
+      title: "R&D Engineer",
+      description: "Research and development of cutting-edge robotics technologies and innovative solutions.",
+      isActive: true,
+      applyLink: "https://forms.gle/gKcfn7PnZHJfcnfh7",
+      details: {
+        duration: "3 months internship",
+        type: "Full-time based on performance",
+        mode: "Mandatory offline",
+        deadline: "Registration closed on September 3"
+      }
     }
   ];
 
