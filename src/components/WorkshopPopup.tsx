@@ -16,28 +16,11 @@ interface Workshop {
 }
 
 const WorkshopPopup: React.FC = () => {
-<<<<<<< HEAD
-  const [isOpen, setIsOpen] = useState(true);
-=======
   const [isOpen, setIsOpen] = useState(false);
->>>>>>> 4f10db866962d072ee3d256457b7e3f077bf6815
   const [hasShown, setHasShown] = useState(false);
 
   // Workshop data - you can move this to a separate file or fetch from API
   const currentWorkshop: Workshop = {
-<<<<<<< HEAD
-    id: 'ros2-robot-simulation-gazebo',
-    title: 'ROS 2: Basics, Roadmap to Pro',
-    date: 'August 31, 2025',
-    time: '10:00 AM - 12:00 PM',
-    mode: 'Online',
-    description: 'This interactive 2-hour virtual workshop is designed to help you kickstart your journey into ROS 2 through hands-on learning. You\'ll explore the essential concepts, tools, and workflows every beginner needs, including ROS 2 architecture, workspaces, and node creation. By the end of the session, you won\'t just understand ROS 2—you\'ll also build and simulate your own robot in Gazebo.',
-   
-    level: 'Intermediate',
-    price: '₹159',
-    image: '/assets/workshops/online/workshop6.jpg',
-    registerLink: 'https://unstop.com/workshops-webinars/ros-2-lets-build-a-robot-karthikesh-robotics-private-limited-1544315'
-=======
     id: 'ros2-basics-roadmap',
     title: 'ROS 2: Basics, Roadmap to Pro',
     date: 'June 29, 2025',
@@ -48,7 +31,6 @@ const WorkshopPopup: React.FC = () => {
     price: '₹150',
     image: '/assets/workshop.png',
     registerLink: 'https://unstop.com/o/frM5Agm?utm_medium=Share&utm_source=shortUrl'
->>>>>>> 4f10db866962d072ee3d256457b7e3f077bf6815
   };
 
   useEffect(() => {
